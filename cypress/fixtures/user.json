@@ -1,22 +1,15 @@
 {
-  "validUser": {
-    "username": "Admin",
-    "password": "admin123"
-  },
-  "invalidPassword": {
-    "username": "Admin",
-    "password": "wrong123"
-  },
-  "emptyUsername": {
-    "username": "",
-    "password": "admin123"
-  },
-  "emptyPassword": {
-    "username": "Admin",
-    "password": ""
-  },
-  "uppercaseUser": {
-    "username": "ADMIN",
-    "password": "ADMIN123"
-  }
+  "validUser": "Admin",
+  "validPass": "admin123",
+  "invalidPassword": "wrong123",
+  "emptyUser": "",
+  "emptyPass": "",
+  "uppercaseUser": "ADMIN",
+  "uppercasePass": "ADMIN123",
+  "spaceUser": "Admin ",
+  "angkaUser": "Admin123",
+  "sUser": "Admins"
+
+
+
 }
