@@ -1,7 +1,3 @@
-
-
-
-
 import loginPage from '../../support/pages/loginPage'
 import user from "../../fixtures/user.json"
 
