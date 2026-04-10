@@ -91,7 +91,7 @@ describe('Login Test - OrangeHRM - Tugas Akhir Sanbercode', () => {
         loginPage.verifyRequired()
     }) 
 
-    it('TC-010 Login dengan Passwor kosong', () => {
+    it('TC-010 Login dengan Password kosong', () => {
         loginPage.setupInterceptusernameAngka()
         loginPage.inputUsername(user.validUser)
         loginPage.clickLogin()
