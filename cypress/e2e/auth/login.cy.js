@@ -7,7 +7,7 @@ describe('Login Test - OrangeHRM - Tugas Akhir Sanbercode', () => {
         loginPage.visit()
     })
 
-    it('TC-001 - Login valid', () => {
+    it('TC-001 Login valid', () => {
         loginPage.setupInterceptLogin()
         loginPage.inputUsername(user.validUser)
         loginPage.inputPassword(user.validPass)

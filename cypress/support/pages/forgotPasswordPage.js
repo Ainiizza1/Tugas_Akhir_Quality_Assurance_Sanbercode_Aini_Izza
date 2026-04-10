@@ -35,7 +35,18 @@ class ForgotPasswordPage {
         cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode').as('FPRequest')
     }    
 
+    setupInterceptresetPassword() {
+        cy.intercept('POST', '**/requestPasswordResetCode').as('resetPassword')
+    }
 
+    setupInterceptresetPassword2() {
+        cy.intercept('**/sendPasswordReset*').as('resetPassword2')
+    }
+
+
+
+    
 }
+
 
 export default new ForgotPasswordPage()

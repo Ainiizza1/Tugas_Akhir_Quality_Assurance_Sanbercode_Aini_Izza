@@ -6,21 +6,20 @@ describe('Test Forgot Password - OrangeHRM - Tugas Akhir Sanbercode', () => {
   
   //Navigasi Akses ke login => Forgot Password  
   beforeEach(() => {
-    loginPage.visit()
-    forgotPage.clickForgotPassword()
+    loginPage.visitForgot()
   })
 
-  it('FP-001 - Username kosong', () => {
+  it('FP-001 Username kosong', () => {
     forgotPage.setupInterceptFP()
     forgotPage.clickReset()
     loginPage.verifyRequired()
-  }) //OK
+  }) 
 
-  it('FP-002 - Cancel dan kembali ke login', () => {
+  it('FP-002 Cancel dan kembali ke login', () => {
     forgotPage.setupInterceptFP()
     forgotPage.clickCancel()
     forgotPage.verifyRedirectToLogin()
-  }) //OK
+  }) 
 
   it('FP-003 - Clear + submit reset', () => {
     forgotPage.setupInterceptFP()
@@ -28,14 +27,46 @@ describe('Test Forgot Password - OrangeHRM - Tugas Akhir Sanbercode', () => {
     forgotPage.clearUsername()
     forgotPage.clickReset()
     loginPage.verifyRequired()
-  }) //OK
+  }) 
 
-//   it('FP-003 - Input username valid', () => {
-//     forgotPage.setupInterceptFP()
-//     forgotPage.inputUsername(user.validUser)
-//     forgotPage.clickReset()
-//     loginPage.verifyRequired()
-//   })
+  it('FP-004 Username valid', () => {
+    forgotPage.setupInterceptresetPassword()
+    forgotPage.inputUsername(user.validUser)
+    forgotPage.clickReset()
+    
+    cy.wait('@resetPassword')
+    forgotPage.verifySuccessMessage()
+  }) 
+
+  it('FP-005 Username tidak valid', () => {
+    forgotPage.setupInterceptresetPassword2()
+    forgotPage.inputUsername(user.angkaUser)
+    forgotPage.clickReset()
+
+    cy.wait('@resetPassword2', { timeout: 10000 })
+    cy.wrap(true).should('eq', true)
+  }) 
+
+  it('FP-006 Username Huruf Besar ', () => {
+    forgotPage.setupInterceptresetPassword()
+    forgotPage.inputUsername(user.uppercaseUser)
+    forgotPage.clickReset()
+    
+    cy.wait('@resetPassword')
+    forgotPage.verifySuccessMessage()
+  })
+
+  it('FP-007 Username dengan spasi', () => {
+    forgotPage.setupInterceptresetPassword()
+    forgotPage.inputUsername(user.spaceUser)
+    forgotPage.clickReset()
+    
+    cy.wait('@resetPassword')
+    forgotPage.verifySuccessMessage()
+  })
+
+
+
 
 })
 

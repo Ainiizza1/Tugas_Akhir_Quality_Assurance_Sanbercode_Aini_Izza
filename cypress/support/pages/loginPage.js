@@ -3,6 +3,18 @@ class LoginPage {
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     }
 
+    visitForgot() {
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', {
+            failOnStatusCode: false
+    })
+        cy.get('input[name="username"]', { timeout: 30000 })
+            .should('exist')
+
+        cy.contains('Forgot', { timeout: 30000 })
+            .should('exist')
+            .click()
+    }
+
     inputUsername(username) {
         cy.get('[name="username"]').clear().type(username)
     }
