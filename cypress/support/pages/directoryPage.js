@@ -8,11 +8,15 @@ class DirectoryPage {
     }
 
     clickSearch() {
-        cy.contains('Search').click()
+        cy.contains('[type="submit"]').click()
     }
 
     verifyResult() {
         cy.get('.oxd-table-card').should('exist')
+    }
+
+    verifySuccessDirectory() {
+        cy.url().should('include', 'directory')
     }
 }
 

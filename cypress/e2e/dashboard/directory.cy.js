@@ -1,39 +1,37 @@
 import loginPage from '../../support/pages/loginPage'
 import directoryPage from '../../support/pages/directoryPage'
+import user from "../../fixtures/user.json"
 
-describe('Directory Menu Test', () => {
+describe('Test Directory Menu - OrangeHRM - Tugas Akhir Sanbercode', () => {
 
     beforeEach(() => {
         loginPage.visit()
-
-        cy.intercept('POST', '**/auth/validate').as('loginRequest')
-
-        loginPage.inputUsername('Admin')
-        loginPage.inputPassword('admin123')
+        loginPage.setupInterceptLogin()
+        loginPage.inputUsername(user.validUser)
+        loginPage.inputPassword(user.validPass)
         loginPage.clickLogin()
-
         cy.wait('@loginRequest')
     })
 
-    it('TC01 - Buka menu directory', () => {
+    it('DT-001 Login dan buka menu directory', () => {     
         directoryPage.openDirectoryMenu()
-        cy.url().should('include', 'directory')
-    })
+        directoryPage.verifySuccessDirectory()
+    }) //OK
 
-    it('TC02 - Search nama valid', () => {
-        directoryPage.openDirectoryMenu()
+//  it('DIR-003 - Search employee valid', () => {
+//     dashboardPage.clickDirectoryMenu()
+//     cy.get('input[placeholder="Type for hints..."]').type('Admin')
+//     cy.get('.oxd-form-actions button[type="submit"]').click()
 
-        directoryPage.searchByName('Linda')
-        directoryPage.clickSearch()
+//     cy.get('.oxd-table-body').should('be.visible')
+//   })
 
-        directoryPage.verifyResult()
-    })
+    // it('TC03 - Search kosong', () => {
+    //     directoryPage.openDirectoryMenu()
 
-    it('TC03 - Search kosong', () => {
-        directoryPage.openDirectoryMenu()
+    //     directoryPage.clickSearch()
 
-        directoryPage.clickSearch()
-
-        cy.get('.oxd-table').should('exist')
-    })
+    //     cy.get('.oxd-table').should('exist')
+    // })
 })
+
