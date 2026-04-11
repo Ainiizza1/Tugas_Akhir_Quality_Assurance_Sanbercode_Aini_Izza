@@ -65,25 +65,3 @@ Digunakan untuk:
 
 ---
 
-## 📁 Project Structure
-
-cypress/
-│
-├── e2e/
-│ ├── auth/
-│ │ ├── forgotPassword.cy.js
-│ │ └── login.cy.js
-│ │
-│ └── dashboard/
-│ └── directory.cy.js
-│
-├── fixtures/
-│ └── user.json
-│
-├── support/
-│ └── pages/
-│ ├── directoryPage.js
-│ ├── forgotPasswordPage.js
-│ └── loginPage.js
-
----
