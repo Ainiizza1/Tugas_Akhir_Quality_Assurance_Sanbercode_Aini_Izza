@@ -19,7 +19,7 @@ describe('OrangeHRM - Directory Feature', () => {
         cy.wait('@directoryPage')
     })
 
-    it('DT-003 Verifikasi tombol search', () => {
+    it('DT-003 Verifikasi tombol Reset', () => {
         directoryPage.clickReset()
         cy.wait('@directoryPage')
     })
