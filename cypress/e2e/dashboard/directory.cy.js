@@ -2,36 +2,64 @@ import loginPage from '../../support/pages/loginPage'
 import directoryPage from '../../support/pages/directoryPage'
 import user from "../../fixtures/user.json"
 
-describe('Test Directory Menu - OrangeHRM - Tugas Akhir Sanbercode', () => {
+
+describe('OrangeHRM - Directory Feature', () => {
 
     beforeEach(() => {
-        loginPage.visit()
-        loginPage.setupInterceptLogin()
-        loginPage.inputUsername(user.validUser)
-        loginPage.inputPassword(user.validPass)
-        loginPage.clickLogin()
-        cy.wait('@loginRequest')
+        directoryPage.visitDirectory()
     })
 
-    it('DT-001 Login dan buka menu directory', () => {     
-        directoryPage.openDirectoryMenu()
+    it('DT-001 Verifikasi halaman direktori', () => {
         directoryPage.verifySuccessDirectory()
-    }) //OK
+        directoryPage.verifyVisible()
+    }) 
 
-//  it('DIR-003 - Search employee valid', () => {
-//     dashboardPage.clickDirectoryMenu()
-//     cy.get('input[placeholder="Type for hints..."]').type('Admin')
-//     cy.get('.oxd-form-actions button[type="submit"]').click()
+    it('DT-002 Verifikasi tombol search', () => {
+        directoryPage.clickSearch()
+        cy.wait('@directoryPage')
+    })
 
-//     cy.get('.oxd-table-body').should('be.visible')
-//   })
+    it('DT-003 Verifikasi tombol search', () => {
+        directoryPage.clickReset()
+        cy.wait('@directoryPage')
+    })
 
-    // it('TC03 - Search kosong', () => {
-    //     directoryPage.openDirectoryMenu()
+    it('DT-004 Verifikasi tampil directory card', () => {
+        directoryPage.clickDirectorycard()
+    })
 
-    //     directoryPage.clickSearch()
+    it('DT-005 Verifikasi job title filter', () => {
+        directoryPage.verifyJobtitlefilter()
+        directoryPage.clickSearch()
 
-    //     cy.get('.oxd-table').should('exist')
-    // })
+        cy.wait('@directoryPage')
+    })
+
+    it('DT-006 Verifikasi location Filter', () => {
+        directoryPage.verifyLocationfilter()
+        directoryPage.clickSearch()
+
+        cy.wait('@directoryPage')
+    })  
+
+    it('DT-007 Verifikasi beberapa filter', () => {
+        directoryPage.verify2filter()
+        directoryPage.clickSearch()
+
+        cy.wait('@directoryPage')
+    }) 
+
+    it('DT-008 Verifikasi employee card', () => {
+        directoryPage.clickEmployeecard()
+    }) 
+
+    it('DT-009 Pencarian tidak valid (kosong)', () => {
+        directoryPage.clickSearch()
+
+        cy.wait('@directoryPage')
+    })
+
+
+
+    
 })
-

@@ -21,7 +21,7 @@ describe('Test Forgot Password - OrangeHRM - Tugas Akhir Sanbercode', () => {
     forgotPage.verifyRedirectToLogin()
   }) 
 
-  it('FP-003 - Clear + submit reset', () => {
+  it('FP-003 Username Valid', () => {
     forgotPage.setupInterceptFP()
     forgotPage.inputUsername(user.validUser)
     forgotPage.clearUsername()
@@ -29,7 +29,7 @@ describe('Test Forgot Password - OrangeHRM - Tugas Akhir Sanbercode', () => {
     loginPage.verifyRequired()
   }) 
 
-  it('FP-004 Username valid', () => {
+  it('FP-004 Clear + submit reset', () => {
     forgotPage.setupInterceptresetPassword()
     forgotPage.inputUsername(user.validUser)
     forgotPage.clickReset()
@@ -47,7 +47,7 @@ describe('Test Forgot Password - OrangeHRM - Tugas Akhir Sanbercode', () => {
     cy.wrap(true).should('eq', true)
   }) 
 
-  it('FP-006 Username Huruf Besar ', () => {
+  it('FP-006 Username Huruf Besar', () => {
     forgotPage.setupInterceptresetPassword()
     forgotPage.inputUsername(user.uppercaseUser)
     forgotPage.clickReset()
