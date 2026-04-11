@@ -1,6 +1,6 @@
 # 🧪 Final Project - Quality Assurance Automation (Sanbercode)
 
-Repository ini merupakan tugas akhir dari program **Quality Assurance Sanbercode Bootcamp**, yang berfokus pada pembuatan automation testing menggunakan **Cypress** dengan pendekatan **Page Object Model (POM)** dan **Intercept (API Testing)**.
+Repository ini merupakan tugas akhir dari program **Quality Assurance Sanbercode Bootcamp**, yang berfokus pada pembuatan automation testing menggunakan **Cypress** dengan pendekatan **Page Object Model (POM)** dan **Intercept (API Testing)**
 
 ---
 ## 🌐 Website Under Test
